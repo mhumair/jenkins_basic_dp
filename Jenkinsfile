@@ -3,6 +3,8 @@ pipeline {
     stages { 
 	stage('remove existing image') {
 		steps {
+			sh 'pwd'
+                        sh 'cd /home/humair/task/k8s/kube/'
 			sh 'ls -al /home/humair/task/k8s/kube/node.yaml'
 			sh 'kubectl delete -f /home/humair/task/k8s/kube/node.yaml'
                 }
