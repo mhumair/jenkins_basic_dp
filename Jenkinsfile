@@ -3,7 +3,7 @@ pipeline {
     stages { 
 	stage('remove existing image') {
 		steps {
-			git clone https://github.com/mhumair/minikube_cluster.git
+			sh 'git clone https://github.com/mhumair/minikube_cluster.git'
 			
 			sh 'ls -al minikube_cluster/kube/node.yaml'
 			sh 'kubectl delete -f minikube_cluster/kube/node.yaml'
