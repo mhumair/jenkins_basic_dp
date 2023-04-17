@@ -15,10 +15,9 @@ pipeline {
         stage('build image') {
                 steps {
                     
-                        sh 'docker info'
                         dir("minikube_cluster/node_app/") {
                             sh """
-		            docker build --no-cache --pull . -t mhumair/nisum-task:firsttry --build-arg CACHEBUST=$(date +%s)
+		            docker build . -t mhumair/nisum-task:firsttry
                             echo '${docker_login}' | docker login --username mhumair --password-stdin 
                             docker push mhumair/nisum-task:firsttry
                             """
